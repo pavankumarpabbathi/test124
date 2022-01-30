@@ -1,0 +1,24 @@
+version: 2.1
+commands:
+  install-aws-cli: 
+    description: "Install aws cli"
+    steps:
+      - run: pip install awscli
+jobs:
+  build_and_deploy:
+    machine: 
+      image: "ubuntu-1604:202104-01"
+    steps:
+      - run: 
+          name: "updating packages"
+          command: apt-get -y update
+      - run: 
+          name: "Installing python-pip"
+          command: apt-get -y install python-pip
+      - run: 
+          name: "Installing awscli"
+          command: install-aws-cli         
+workflows:
+  first_job_test:
+    jobs: 
+      - build_and_deploy     
