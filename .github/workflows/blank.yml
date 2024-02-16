@@ -22,7 +22,7 @@ jobs:
       - name: 🐸 Download JFrog CLI
         run: | 
           curl -fL https://getcli.jfrog.io/v2 | sh
-          chmox +x jfrog
+          chmod +x jfrog
           PATH=$PATH:$PWD
       - name: 🐸 Download JFrog CLI
         run: jfrog --version
