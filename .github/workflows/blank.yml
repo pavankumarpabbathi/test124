@@ -20,8 +20,10 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: 🐸 Download JFrog CLI
-        run: curl -fL https://getcli.jfrog.io/v2 | sh
-
+        run: | 
+          curl -fL https://getcli.jfrog.io/v2 | sh
+          chmox +x jfrog
+          PATH=$PATH:$PWD
       - name: 🐸 Download JFrog CLI
-        run: ls -la
+        run: jfrog --version
        
